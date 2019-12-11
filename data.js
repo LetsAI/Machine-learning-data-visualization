@@ -1,4 +1,4 @@
-// pecifying  the neural network shape and parameters
+// specifying  the neural network shape and parameters
 const defults = {
     inputs: 6,
     outputs:2,
@@ -47,8 +47,8 @@ o2 = i+(i-1);
 // Normalize your data
 neuralNetwork.data.normalize();
 
-// Train the model and with two callback functions (whileTraining,finish)
-// Please note that the "finish" callback function will note return anything unless the training is done
+// Train the model with two callback functions (whileTraining, finish)
+// Please note that the "finish" callback function will not return anything unless the training is done
 // The whileTraining callback function is to visualise the data while training
 neuralNetwork.train(whileTraining,finish);
 
@@ -85,7 +85,7 @@ var chart = new CanvasJS.Chart("chart_div", {
         titleFontSize: 16,
         titleFontStyle: "italic",
     },
-    // The main title properties
+    
     legend: {
         cursor:"poiner",
         fontSize: 14,
