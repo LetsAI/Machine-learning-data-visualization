@@ -1,4 +1,4 @@
-
+// pecifying  the neural network shape and parameters
 const defults = {
     inputs: 6,
     outputs:2,
@@ -29,7 +29,7 @@ var neuralNetwork = 0
 // Initialize the the neural network
 neuralNetwork = ml5.neuralNetwork(defults);
 
-// add in some data
+// Adding some data
 for (i =0; i<1000;i++){
 x = i;
 y = i+2;
@@ -38,19 +38,25 @@ w = i-1;
 e = i*(-1);
 t = i-1;
 
+// Adding The expected output 
 o1 = i+(i*-2);
 o2 = i+(i-1);
     neuralNetwork.data.addData( [x,y,z,w,e,t], [o1,o2])
 }
 
-// normalize your data
+// Normalize your data
 neuralNetwork.data.normalize();
-// train your model
 
+// Train the model and with two callback functions (whileTraining,finish)
+// Please note that the "finish" callback function will note return anything unless the training is done
+// The whileTraining callback function is to visualise the data while training
 neuralNetwork.train(whileTraining,finish);
 
+
+
+///////////////////////////////////// The visualisation part using CanvasJS ///////////////////////
+
 var dps = [];
-var dpa = []; // dataPoints
 var chart = new CanvasJS.Chart("chart_div", {
     width: 500,
     zoomEnabled: true,
@@ -60,9 +66,8 @@ var chart = new CanvasJS.Chart("chart_div", {
         text: "Training Performance",
         fontColor:"gray",
         fontSize: 16,
-        
     },
-    
+    // The X axis properties
     axisX: {
         title:"Epochs",
         includeZero: true,
@@ -70,6 +75,7 @@ var chart = new CanvasJS.Chart("chart_div", {
         titleFontSize: 16,
         titleFontStyle: "italic",
     },
+    // The Y axis properties
     axisY: {
         title:"Loss",
         includeZero: true,
@@ -79,31 +85,28 @@ var chart = new CanvasJS.Chart("chart_div", {
         titleFontSize: 16,
         titleFontStyle: "italic",
     },
+    // The main title properties
     legend: {
         cursor:"poiner",
         fontSize: 14,
         fontColor: "dimGrey",
-        
     },
-
+    
     data: [{
-     
         // showInLegend: true, 
         // legendText: "Loss",
         type: "spline",
-        dataPoints: dps,
+        dataPoints: dps, /// Adding the chart properties
        
        // markerSize: 4,
     }]
-
 });
-
 
 var xVal = 0;
 var yVal = 0; 
-
 var dataLength = 100; // number of dataPoints visible at any point
 
+// Here is the place where the data get updated according to the callback function values 
 function whileTraining(epoch, loss){
 
     var updateChart = function (count) {
@@ -123,7 +126,7 @@ function whileTraining(epoch, loss){
     updateChart(dataLength);
 }
 
-// when it is done training, run .predict()
+// when it is done training, run the prediction
 function finish(){
 
     const 
@@ -140,9 +143,9 @@ function finish(){
     })
     
 }
-
+// Download the model and the data
 function bt(){
     neuralNetwork.saveData();
-    // neuralNetwork.save(finish);
+    neuralNetwork.save(finish);
 
 }
