@@ -58,7 +58,7 @@ neuralNetwork.train(whileTraining,finish);
 
 var dps = [];
 var chart = new CanvasJS.Chart("chart_div", {
-    width: 500,
+    width: 800,
     zoomEnabled: true,
     theme: "light",
     exportEnabled: true,
@@ -107,13 +107,14 @@ var yVal = 0;
 var dataLength = 100; // number of dataPoints visible at any point
 
 // Here is the place where the data get updated according to the callback function values 
-function whileTraining(epoch, loss){
+function whileTraining(epoch, loss_acc){
 
+    document.getElementById("show").innerHTML = (`Epochs: ${epoch} <br> <br> Accuracy: ${(loss_acc.acc*100).toFixed(2)} %`)
     var updateChart = function (count) {
     
         count = count || 1;
         xVal = epoch;
-        yVal = loss.loss*100;
+        yVal = loss_acc.loss*100;
     
             dps.push({
                 x: xVal,
@@ -138,14 +139,15 @@ function finish(){
         input5 = 233;
 
     neuralNetwork.predict( [input0, input1 ,input2 ,input3 ,input4 ,input5], (err, results) => {
-        document.getElementById('show_results').innerHTML = results[0].label + " : " + results[0].value + "<br>"
+        document.getElementById('show_results').innerHTML = results[0].label + " : " + results[0].value + "<br><br>"
          +results[1].label + " : " + results[1].value ;
     })
     
 }
 // Download the model and the data
 function bt(){
-    neuralNetwork.saveData();
     neuralNetwork.save(finish);
-
+}
+function dataBt(){
+    neuralNetwork.saveData();
 }
