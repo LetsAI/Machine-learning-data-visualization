@@ -3,4 +3,4 @@
  The purpose of this example is to show how to simplify data visualization with fewer lines of code. 
  
  ![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
+![Alt Text](url)
