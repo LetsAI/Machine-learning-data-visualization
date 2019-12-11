@@ -1,2 +1,4 @@
 # Machine learning data visualization
- This example is a combimnation of two libraries ML5 and CanvasJS
+ This is an example of how to visualize the data while the training process is happening using CanvasJS and ML5 library. The purpose of this example is to show how to simplify data visualization with fewer lines of code.
+
+ ![Example]()
