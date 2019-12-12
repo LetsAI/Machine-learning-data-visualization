@@ -3,7 +3,7 @@
 * [**CanvasJS**](https://canvasjs.com/)
 * [**ML5**](https://ml5js.org/)<br/>
 
-The purpose of this example is to show how to simplify data visualization with fewer lines of code. 
+The purpose of this example is to simplify data visualization with fewer lines of code. 
 
  ----------------------------------------------------------------------------------------------------------
 ![Image example](https://github.com/LetsAI/Machine-learning-data-visualization/blob/master/Capture.PNG)
