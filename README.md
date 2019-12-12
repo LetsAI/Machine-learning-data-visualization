@@ -1,5 +1,5 @@
 # Machine learning dynamic data visualization
- This is an example of how to visualize the data while the training process is happening like the loss, accuracy, number of epochs and other paramiters using:
+ This is an example of how to visualize the data while the training process is happening like the loss, accuracy, number of epochs and other parameters using:
 * [**CanvasJS**](https://canvasjs.com/)
 * [**ML5**](https://ml5js.org/)<br/>
 
