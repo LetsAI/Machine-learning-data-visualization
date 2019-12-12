@@ -3,7 +3,7 @@
 * [**CanvasJS**](https://canvasjs.com/)
 * [**ML5**](https://ml5js.org/)<br/>
 
-The purpose of this example is to share an idea of how to simplify data visualization with fewer lines of code. 
+Because I didn't find many documentations on how to visualize a dynamic data on the internet, this example is to share an idea of how to simplify data visualization easily with fewer lines of code. 
 
  ----------------------------------------------------------------------------------------------------------
 ![Image example](https://github.com/LetsAI/Machine-learning-data-visualization/blob/master/Capture.PNG)
