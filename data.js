@@ -2,7 +2,6 @@
 const defults = {
     inputs: 6,
     outputs:2,
-    Udebug: true,
     epochs: 30,
     layers: [
         ml5.tf.layers.dense({
