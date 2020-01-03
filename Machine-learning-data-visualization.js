@@ -1,8 +1,11 @@
 // specifying  the neural network shape and parameters
+function StartTraining(){
+document.getElementById("show_results").innerHTML = "";
+var ep = document.getElementById("ep").value;
 const defults = {
     inputs: 6,
     outputs:2,
-    epochs: 30,
+    epochs:ep,
     layers: [
         ml5.tf.layers.dense({
             units: 16,
@@ -48,8 +51,9 @@ neuralNetwork.data.normalize();
 
 // Train the model with two callback functions (whileTraining, finish)
 // Please note that the "finish" callback function will not return anything unless the training is done
-// The whileTraining callback function is to visualise the data while training
-neuralNetwork.train(whileTraining,finish);
+// The whileTraining callback function is to visualise the data while training 
+    neuralNetwork.train(whileTraining,finish);
+
 
 
 
@@ -101,6 +105,7 @@ var chart = new CanvasJS.Chart("chart_div", {
     }]
 });
 
+
 var xVal = 0;
 var yVal = 0; 
 var dataLength = 100; // number of dataPoints visible at any point
@@ -149,4 +154,5 @@ function bt(){
 }
 function dataBt(){
     neuralNetwork.saveData();
+}
 }
